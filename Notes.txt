@@ -1,0 +1,15 @@
+2 ways to switch to child window
+	Set<String> allWindowHandles = context.driver.getWindowHandles();
+	Iterator<String> iterator = allWindowHandles.iterator();
+	String parentWindow = iterator.next();
+	String childWindow = iterator.next();
+	context.driver.switchTo().window(childWindow);
+	// or 
+	 Set<String> allWindowHandles = context.driver.getWindowHandles();
+	 for(String handle : allWindowHandles) {
+	    context.driver.switchTo().window(handle);
+	    String currentUrl = context.driver.getCurrentUrl();
+	    if(currentUrl.equals("https://rahulshettyacademy.com/seleniumPractise/#/offers")) {
+	    	break;
+	    }
+	
